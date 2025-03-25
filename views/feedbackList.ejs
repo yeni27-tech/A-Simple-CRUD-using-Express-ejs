@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Feedback Page</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #f0f4f8, #ffffff);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            animation: fadeIn 1s;
+            color: #001f3f;
+            font-size: 2.5em;
+            font-weight: 600;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .feedback-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .feedback-card {
+            background: white;
+            border: 2px solid #001f3f;
+            /* Navy border */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 300px;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+            animation-delay: 0.5s;
+        }
+
+        .feedback-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .rating {
+            color: gold;
+            font-size: 1.2em;
+        }
+
+        .input-field {
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .input-field input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #FFEA00;
+            /* Yellow border */
+            border-radius: 5px;
+            background: transparent;
+            color: #001f3f;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .input-field input:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 0 5px #FFD700;
+        }
+
+        .input-field label {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            transition: 0.3s;
+            color: #001f3f;
+            /* Navy label color */
+            pointer-events: none;
+        }
+
+        .input-field input:focus+label,
+        .input-field input:not(:placeholder-shown)+label {
+            top: -10px;
+            left: 5px;
+            font-size: 12px;
+            color: #FFD700;
+            /* Yellow label color */
+        }
+
+        .submit-button {
+            background: linear-gradient(90deg, #001f3f, #FFD700);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s, box-shadow 0.3s;
+            display: block;
+            margin: 20px auto;
+            font-weight: 600;
+        }
+
+        .submit-button:hover {
+            background: linear-gradient(90deg, #FFD700, #001f3f);
+            box-shadow: 0 0 10px #FFD700;
+        }
+
+        .star-rating {
+            display: flex;
+            justify-content: center;
+            margin: 10px 0;
+        }
+
+        .star {
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .star:hover {
+            transform: scale(1.2);
+        }
+
+        .star.selected {
+            color: gold;
+        }
+
+        @media (max-width: 600px) {
+            .feedback-card {
+                width: 90%;
+            }
+        }
+
+        button {
+            background: linear-gradient(90deg, #049e9bc6, #041b50af);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s, box-shadow 0.3s;
+            display: block;
+            margin: 20px auto;
+            font-weight: 600;
+            list-style-type: none;
+            text-decoration: none;
+        }
+        button a {
+            text-decoration: none;
+            list-style-type: none;
+            color: white;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #041b50af, #049e9bc6);
+            box-shadow: 0px 5px 18px rgba(48, 68, 247, 0.6);
+        }
+
+        .fa-solid {
+            color:gray;
+            font-size: 1.5rem;
+        }
+
+        .fa-solid:hover {
+            color: #001f3f;
+        }
+
+        span {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .message {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .name, .email {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1; /* Limit to 1 line */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis */
+    margin: 5px 0; /* Spacing */
+}
+
+        .email{
+            font-size: 0.9rem;
+        }
+        .date {
+            font-size: 0.8rem;
+            color: gray;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Feedback Form</h1>
+    <div class="feedback-container">
+        <% feedbacks.forEach(feedback=> { %>
+            <div class="feedback-card"> 
+                <span>
+                    <img src="<%= feedback.profile ? feedback.profile : '/uploads/profile-deafult.jpeg' %>" alt="Feedback Profile">
+                <h3 class="name">
+                    <%= feedback.nama %> 
+                    <p class="email">
+                        <%= feedback.email %>
+                    </p>
+                </h3>
+                <a href="/feedbackList/<%= feedback.nama %>"><i class="fa-solid fa-circle-info"></i></a>
+                </span>
+                <span class="rating">
+                    <%= "★" .repeat(feedback.rating) + "☆" .repeat(5 - feedback.rating) %>
+                </span>
+                <p class="message">
+                    <%= feedback.message %>
+                </p>
+                <p class="date">
+                    <p class="date">
+                        <%= new Date(feedback.date).toLocaleString('id-ID', { year: 'numeric' , month: 'long' , day: 'numeric' ,
+                              timeZone: 'Asia/Jakarta' , hour12: false }) %>
+                    </p>
+                </p>
+            </div>
+            <% }); %>
+    </div>
+
+    <button><a href="/feedbackForm">Add Feedback</a></button>
+    <script>
+        // Star rating functionality
+        const stars = document.querySelectorAll('.star');
+        let selectedRating = 0;
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                selectedRating = star.dataset.rating;
+                stars.forEach(s => {
+                    s.classList.remove('selected');
+                });
+                for (let i = 0; i < selectedRating; i++) {
+                    stars[i].classList.add('selected');
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('feedbackForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert(`Feedback submitted:\nName: ${document.getElementById('name').value}\nMessage: ${document.getElementById('message').value}\nRating: ${selectedRating}`);
+        });
+
+
+
+        // Assuming feedback.date is a JavaScript Date object or an ISO string
+            const feedbackDate = new Date(feedback.date);
+            const options = {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                timeZone: 'Asia/Jakarta',
+                hour12: false // Adjust to true if you want 12-hour format
+            };
+            const formattedDate = feedbackDate.toLocaleString('id-ID', options);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+
+<%- include('../layouts/navbar') %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <style>
+        body{
+            font-family: papyrus;
+        }
+        .output{
+            height: 200px;
+            line-height: 35px;
+            align-content: center;
+            justify-self: center;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="output">
+        <p>Nama: <%= namalengkap %></p>
+        <p>Email: <%= email %></p>
+        <p>No. HP: <%= nohp %></p>
+    </div>
+</body>
+</html>
+
+<%- include('../layouts/footer') %>

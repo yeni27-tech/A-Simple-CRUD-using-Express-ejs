@@ -1,0 +1,55 @@
+
+
+<body>
+<style>
+  h1{
+    padding-top: 15vh;
+  }
+
+  body{
+    font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #f0f4f8, #ffffff);  }
+</style>
+
+  <h1>
+    <%= title %>
+  </h1>
+  <a href="/add" class="btn btn-warning">Tambah Data Contact</a><br /><br />
+  <table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nama</th>
+        <th scope="col">Email</th>
+        <th scope="col">No HP</th>
+        <th scope="col">Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Contacts.forEach((contact, index)=> { %>
+        <tr>
+          <th scope="row">
+            <%= index + 1 %>
+          </th> <!-- Menampilkan nomor urut -->
+          <td>
+            <%= contact.nama %>
+          </td>
+          <td>
+            <%= contact.email %>
+          </td>
+          <td>
+            <%= contact.nohp %>
+          </td>
+          <td>
+            <a href="/contact/<%= contact.nama %>">Detail</a> / <!-- Tautan Detail -->
+            <a href="/contact/<%= contact.nama %>/edit">Edit</a> / <!-- Tautan Edit -->
+            <a href="/contact/<%= contact.nama %>/delete"
+              onclick="return confirm('Apakah Anda yakin ingin menghapus?')">Delete</a>
+            <!-- Tautan Delete dengan konfirmasi -->
+          </td>
+        </tr>
+        <% }) %>
+    </tbody>
+  </table>
+</body>

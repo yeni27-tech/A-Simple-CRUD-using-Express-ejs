@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Detail Feedback</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f0f4f8, #ffffff);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            text-align: center;
+            color: #001f3f;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .feedback-detail {
+            background: white;
+            border: 2px solid #001f3f;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            align-items: flex-start;
+            transition: transform 0.3s;
+        }
+
+        .feedback-detail:hover {
+            transform: scale(1.02);
+        }
+
+        .profile-container {
+            margin-right: 20px;
+            transition: transform 0.3s;
+        }
+
+        .profile-container img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            transition: transform 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-container img:hover {
+            transform: scale(1.1);
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-grow: 1;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+
+        .message {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            margin-top: 10px;
+            width: 100%;
+            overflow-wrap: break-word;
+        }
+
+        .rating {
+            color: gold;
+            font-size: 1.2em;
+        }
+
+        .actions {
+    display: flex;
+    justify-content: center; 
+    margin-top: 20px;
+    flex-wrap: wrap;
+    gap: 15px; 
+    width: 70%; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+        .actions a {
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .actions a.delete {
+            background: #d9534f;
+            /* Red for delete */
+        }
+
+        .actions a.edit {
+            background: linear-gradient(90deg, #049e9bc6, #041b50af);
+            transition: background 0.3s, box-shadow 0.3s;
+            /* Blue for edit */
+        }
+
+        .actions a.back {
+            color: #001f3f;
+            /* Green for back */
+        }
+
+        .actions a:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .actions a.edit:hover {
+            background: linear-gradient(90deg, #041b50af, #049e9bc6);
+            box-shadow: 0px 5px 18px rgba(48, 68, 247, 0.6);
+        }
+
+        .actions a.delete:hover {
+            box-shadow: 0px 5px 18px rgba(247, 48, 48, 0.582);
+        }
+
+        @media (max-width: 600px) {
+            .feedback-detail {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .profile-container {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Detail Feedback</h1>
+    <div class="feedback-detail">
+        <div class="profile-container">
+            <img src="<%= feedback.profile ? feedback.profile : '/uploads/profile-deafult.jpeg' %>"
+                alt="Feedback Profile">
+        </div>
+        <div class="info">
+            <ul>
+                <li><strong>Nama:</strong>
+                    <%= feedback.nama %>
+                </li>
+                <li><strong>Email:</strong>
+                    <%= feedback.email %>
+                </li>
+                <li><strong>Tanggal:</strong>
+                    <%= new Date(feedback.date).toLocaleString('id-ID', { year: 'numeric' , month: 'long' ,
+                        day: 'numeric' , timeZone: 'Asia/Jakarta' , hour12: false }) %>
+                </li>
+                <li><strong>Pesan:</strong></li>
+                <li class="message">
+                    <%= feedback.message %>
+                </li>
+                <li><strong>Rating:</strong> <span class="rating">
+                        <%= "★" .repeat(feedback.rating) %>
+                    </span></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="actions">
+        <a href="/feedbackList" class="back"><< Kembali ke Daftar Feedback</a>
+        <a href="/feedbackDetail/<%= feedback.nama %>/delete" class="delete"
+            onclick="return confirm('Apakah Anda yakin ingin menghapus feedback ini?')">Hapus Feedback</a>
+        <a href="/feedbackDetail/<%= feedback.nama %>/feedbackEdit" class="edit">Edit Feedback</a>
+    </div>
+
+    <script src="/js/animations.js"></script>
+</body>
+
+</html>

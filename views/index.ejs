@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords"
+    content="jigar sable, portfolio, jigar, full stack dev, personal portfolio lifecodes, portfolio design, portfolio website, personal portfolio" />
+  <meta name="description" content="Welcome to Jigar's Portfolio. Full-Stack Web Developer and Android App Developer" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Favicon -->
+  <link id='favicon' rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-png">
+  <title><%= title %></title>
+</head>
+
+<body oncontextmenu="return false">
+
+  <!-- pre loader -->
+  <!-- <div class="loader-container">
+  <img draggable="false" src="./assets/images/preloader.gif" alt="">
+</div> -->
+
+  <!-- navbar starts -->
+  <!-- <header>
+    <a href="/" class="logo"><i class="fab fa-node-js"></i> Jigar</a>
+
+    <div id="menu" class="fas fa-bars"></div>
+    <nav class="navbar">
+      <ul>
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li> 
+        <li><a href="#education">Education</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header> -->
+  <!-- navbar ends -->
+
+
+  <!-- hero section starts -->
+  <section class="home" id="home">
+    <div id="particles-js"></div>
+
+    <div class="content">
+      <h2>Hi There,<br /> I'm Yeni <span>Faturohmah</span></h2>
+      <!-- <p>i am into <span class="typing-text"></span></p> -->
+       <span class="js">I 'am a &emsp;</span><span class="typed-text"></span>
+       <span class="cursor">&nbsp;</span>
+       <style>
+        .js {
+          font-size:large;
+          color: #095700;
+        }
+        .typed-text {
+          font-size: large;
+          color: #ecff17;
+          text-shadow: rgb(215, 151, 0) 2px 1px;
+        }
+        .cursor {
+          font-size: large;
+          color: #002057;
+        }
+
+        .js, 
+        .cursor,
+        .typed-text{
+          font-weight: bold;
+        }
+       </style>
+
+      <br>
+      <a href="#about" class="btn"><span>About Me</span>
+        <i class="fas fa-arrow-circle-down"></i>
+      </a>
+      <div class="socials">
+        <ul class="social-icons">
+          <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/jigar-sable/"
+              target="_blank"><i class="fab fa-linkedin"></i></a></li>
+          <li><a class="github" aria-label="GitHub" href="https://github.com/jigar-sable" target="_blank"><i
+                class="fab fa-github"></i></a></li>
+          <li><a class="twitter" aria-label="Twitter" href="https://twitter.com/jigar_sable" target="_blank"><i
+                class="fab fa-twitter"></i></a></li>
+          <li><a class="telegram" aria-label="Telegram" href="https://t.me/lifecode5" target="_blank"><i
+                class="fab fa-telegram-plane"></i></a></li>
+          <li><a class="instagram" aria-label="Instagram" href="https://www.instagram.com/jigarsable.dev"><i
+                class="fab fa-instagram" target="_blank"></i></a></li>
+          <li><a class="dev" aria-label="Dev" href="https://dev.to/jigarsable" target="_blank"><i
+                class="fab fa-dev"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="image">
+      <img draggable="false" class="tilt" src="/image/PhotoShot_1711986033947.jpeg.jpg" alt="">
+    </div>
+  </section>
+  <!-- hero section ends -->
+
+
+<style>@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  transition: all 0.2s linear;
+}
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0f4f8, #ffffff);
+}
+
+*::selection {
+  background: #2b3dda;
+  color: #fff;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+html::-webkit-scrollbar {
+  width: 0.8rem;
+}
+html::-webkit-scrollbar-track {
+  background: rgb(235, 202, 245);
+}
+html::-webkit-scrollbar-thumb {
+  background: #420177;
+}
+
+/* pre loader start */
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  background: #e6eff1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+.loader-container.fade-out {
+  top: -120%;
+}
+/* pre loader end */
+
+/* hamburger icon starts*/
+#menu {
+  font-size: 3rem;
+  cursor: pointer;
+  color: rgb(24, 2, 63);
+  display: none;
+}
+@media (max-width: 768px) {
+  #menu {
+    display: block;
+  }
+  header .navbar {
+    position: fixed;
+    top: 6.5rem;
+    right: -120%;
+    width: 75%;
+    height: 100%;
+    text-align: left;
+    align-items: flex-start;
+    background-color: #0e0f31;
+  }
+  header .navbar ul {
+    flex-flow: column;
+    padding: 1rem;
+  }
+  header .navbar ul li {
+    text-align: center;
+    width: 100%;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    width: 26rem;
+  }
+  header .navbar ul li a {
+    display: block;
+    padding: 1rem;
+    text-align: left;
+    color: #fff;
+    font-size: 2rem;
+  }
+  header .navbar ul li a.active,
+  header .navbar ul li a:hover {
+    padding: 1rem;
+    color: #fff;
+    border-radius: 0.5rem;
+    border-bottom: 0.5rem solid #011aff;
+  }
+  .fa-times {
+    transform: rotate(180deg);
+  }
+  header .navbar.nav-toggle {
+    right: 0;
+  }
+}
+/* hamburger icon ends */
+
+/* hero section starts*/
+.home {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  min-height: 100vh;
+  align-items: center;
+}
+.home #particles-js {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.home .content {
+  flex: 1 1 40rem;
+  padding-top: 1rem;
+  z-index: 1;
+  margin-left: 130px;
+}
+.home .image {
+  flex: 1 1 40rem;
+  z-index: 1;
+}
+.home .image img {
+  width: 50%;
+  margin-left: 6rem;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+.home .image img:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+.home .content h2 {
+  font-size: 5rem;
+  font-weight: 800;
+  color: #002057;
+}
+.home .content h2 span {
+  font-size: 5rem;
+  font-weight: 800;
+  color: #ff7b00;
+}
+.home .content p {
+  font-size: 2.5rem;
+  color: #000;
+  font-weight: 600;
+  padding: 1rem 0;
+}
+.home .content p span {
+  font-size: 2.5rem;
+  color: rgb(148, 8, 8);
+  font-weight: 600;
+  padding: 1rem 0;
+}
+.home .btn {
+  margin-top: 1rem;
+  position: absolute;
+  line-height: 0;
+  padding: 1.6rem 3rem;
+  border-radius: 4em;
+  transition: 0.5s;
+  color: #fff;
+  background: #2506ad;
+  box-shadow: 0px 5px 18px rgba(48, 68, 247, 0.6);
+  font-family: "Nunito", sans-serif;
+}
+.home .btn span {
+  font-weight: 700;
+  font-size: 1.7rem;
+  letter-spacing: 0.1rem;
+}
+.home .btn i {
+  margin-left: 0.3rem;
+  font-size: 1.5rem;
+  transition: 0.3s;
+}
+.home .btn:hover {
+  background: #1a047e;
+}
+.home .btn:hover i {
+  transform: translateX(5px);
+}
+/* social icons start */
+.socials {
+  position: relative;
+  margin-top: 9rem;
+}
+.socials .social-icons {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+.socials .social-icons li {
+  display: inline-block;
+  margin-bottom: 14px;
+}
+.social-icons a {
+  font-size: 2rem;
+  display: inline-block;
+  line-height: 44px;
+  color: #00d9ff;
+  background-color: #09011b;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  margin-right: 8px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.social-icons a:active,
+.social-icons a:focus,
+.social-icons a:hover {
+  color: #fff;
+  background-color: #0685da;
+}
+.social-icons a.github:hover {
+  background-color: #0e0e0e;
+}
+.social-icons a.twitter:hover {
+  background-color: #00aced;
+}
+.social-icons a.linkedin:hover {
+  background-color: #007bb6;
+}
+.social-icons a.dev:hover {
+  background-color: #070707;
+}
+.social-icons a.instagram:hover {
+  background-color: #ee00da;
+}
+/* social icons end */
+
+/* hero media queries starts*/
+@media (max-width: 450px) {
+  .home .btn {
+    margin: 4rem 0;
+  }
+  .socials {
+    margin-top: 12rem;
+  }
+  .home .image img {
+    margin-top: -12rem;
+  }
+  .home .content p {
+    font-size: 2.2rem;
+  }
+  .home .content p span {
+    font-size: 2.2rem;
+  }
+}
+/* hero media queries ends*/
+/* hero section end */
+
+
+/* scroll top starts */
+#scroll-top {
+  position: fixed;
+  top: -140%;
+  right: 2rem;
+  padding: 1rem 1.5rem;
+  font-size: 2rem;
+  background: #ffae00;
+  color: rgb(13, 0, 44);
+  border-radius: 50%;
+  transition: 1s linear;
+  z-index: 1000;
+}
+#scroll-top.active {
+  top: calc(100% - 12rem);
+}
+/* scroll top ends */
+</style>
+
+<script>
+  const typedTextSpan = document.querySelector(".typed-text");
+    const cursor = document.querySelector(".cursor");
+
+    const words = ["Web Developer", "Mobile App Developer","Game Developer", "UI/UX Designer"];
+    const typingDelay = 200;
+    const erasingDelay = 200;
+    const newLetterDelay = 2000;
+    let index = 0;
+    let charIndex = 0;
+
+    document.addEventListener("DOMContentLoaded", () => {
+      if (words.length) {
+        setTimeout(type, newLetterDelay);
+      }
+    });
+
+    function type() {
+      if (charIndex < words[index].length) {
+        typedTextSpan.textContent += words[index].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, typingDelay);
+      } else {
+        setTimeout(erase, newLetterDelay);
+      }
+    }
+
+    function erase() {
+      if (charIndex > 0) {
+        typedTextSpan.textContent = words[index].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(erase, erasingDelay);
+      } else {
+        index++;
+        if (index >= words.length) {
+          index = 0;
+        }
+        setTimeout(type, typingDelay + 1100);
+      }
+    }
+
+</script>
+
+</body>
+</html>

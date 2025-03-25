@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>
+        <%= title %>
+    </title>
+    <style>
+        body{
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #f0f4f8, #ffffff);
+        }
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            animation: fadeIn 1s;
+            color: #001f3f;
+            font-size: 2.5em;
+            font-weight: 600;
+        }
+
+        form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        input[type="file"],
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+            font-size: 16px;
+        }
+
+        input[type="file"] {
+            padding: 5px;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="date"]:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #3f51b5;
+            outline: none;
+        }
+
+        button {
+            background: linear-gradient(90deg, #049e9bc6, #041b50af);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, box-shadow 0.3s;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #041b50af, #049e9bc6);
+            box-shadow: 0px 5px 18px rgba(48, 68, 247, 0.6);
+        }
+
+        a {
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.2s;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #001f3f;
+            transition: color 0.3s;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        a:hover {
+            color: #303f9f;
+        }
+
+        ul {
+            color: red;
+            list-style-type: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        .star-rating {
+            display: flex;
+            margin: 10px 0;
+        }
+
+        .star {
+            font-size: 30px;
+            color: #ccc;
+            cursor: pointer;
+        }
+
+        .star.selected {
+            color: #f39c12;
+        }
+
+        .image-preview {
+            margin-top: 10px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-preview img {
+            max-width: 80px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Form Feedback</h1>
+    <center>
+    <form action="/feedbackForm" method="POST" enctype="multipart/form-data">
+        <input type="file" name="profile" accept="image/*" id="file-input" required>
+        <div class="image-preview" id="image-preview">
+            <img id="preview-image" src="#" alt="Image Preview">
+        </div>
+        <input type="date" name="date" required>
+        <input type="text" name="nama" placeholder="Nama" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="message" placeholder="Pesan" required></textarea>
+
+        <div class="star-rating">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+            <input type="hidden" name="rating" id="rating" required>
+        </div>
+
+        <button type="submit">Kirim Feedback</button>
+    </form>
+
+
+    <% if (errors) { %>
+        <ul>
+            <% errors.forEach(error=> { %>
+                <li>
+                    <%= error.msg %>
+                </li>
+                <% }); %>
+        </ul>
+        <% } %>
+        <br>
+        <br>
+            <a href="/feedbackList"><< Kembali ke Daftar Feedback</a>
+                </center>
+            <script>
+                const fileInput = document.getElementById('file-input');
+                const previewImage = document.getElementById('preview-image');
+                const imagePreviewDiv = document.getElementById('image-preview');
+                const stars = document.querySelectorAll('.star');
+                const ratingInput = document.getElementById('rating');
+
+                // Image 
+                fileInput.addEventListener('change', function () {
+                    const file = this.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function (e) {
+                            previewImage.src = e.target.result;
+                            imagePreviewDiv.style.display = 'flex';
+                        }
+                        reader.readAsDataURL(file);
+                    } else {
+                        imagePreviewDiv.style.display = 'none';
+                    }
+                });
+
+                // Star rating functionality
+                stars.forEach(star => {
+                    star.addEventListener('click', function () {
+                        const rating = this.getAttribute('data-value');
+                        ratingInput.value = rating;
+
+                        stars.forEach(s => {
+                            s.classList.remove('selected');
+                        });
+
+                        for (let i = 0; i < rating; i++) {
+                            stars[i].classList.add('selected');
+                        }
+                    });
+                });
+            </script>
+</body>
+
+</html>

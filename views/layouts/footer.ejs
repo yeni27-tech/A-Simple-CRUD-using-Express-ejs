@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .footer {
+      padding: 40px 2rem;
+      background-color: #0d1117;
+      color: white;
+      width: 100%;
+      position: relative;
+      bottom: 0;
+      text-align: center;
+      /* Center the text */
+      margin-top: 50vh;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .footer-section {
+      margin: 10px;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .footer-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #f39c12;
+      /* Accent color */
+    }
+
+    .footer-section p {
+      margin: 5px 0;
+      font-size: 1rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: inline-block;
+      /* Center the list */
+    }
+
+    .footer-links li {
+      display: inline-block;
+      margin: 0 15px;
+    }
+
+    .footer-links a {
+      color: #ffffff;
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+    }
+
+    .social {
+      margin: 20px 0;
+    }
+
+    .social a {
+      font-size: 30px;
+      margin: 0 10px;
+      color: #ffffff;
+      opacity: 0.75;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .social a:hover {
+      opacity: 1;
+      transform: scale(1.2);
+      /* Scale effect on hover */
+    }
+
+    .footer-break {
+      height: 2px;
+      background-color: #444;
+      border: none;
+      margin: 20px 0;
+    }
+
+    .copyright {
+      font-size: 13px;
+      color: #aaa;
+      margin: 0;
+    }
+
+    @media (max-width: 600px) {
+      .footer-content {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-section {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <footer class="footer" role="contentinfo">
+    <div class="footer-content">
+      <!-- <div class="footer-section">
+        <h2>Use</h2>
+        <p>Perfume</p>
+        <p>Lotion</p>
+        <p>Make Up</p>
+      </div> -->
+
+      <div class="footer-section">
+        <h2>Address</h2>
+        <p>jl. Kebon Jeruk</p>
+      </div>
+
+      <div class="footer-section">
+        <h2>Contact</h2>
+        <p>Instagram</p>
+        <p>Facebook</p>
+        <p>WhatsApp</p>
+      </div>
+    </div>
+
+    <hr class="footer-break" />
+
+    <div class="social">
+      <h3 class="sr-only">Follow us!</h3>
+      <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+    </div>
+
+    <ul class="footer-links" role="navigation">
+      <li><a href="/index">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+
+    <p class="copyright">© Yeni Faturohmah</p>
+  </footer>
+</body>
+
+</html>

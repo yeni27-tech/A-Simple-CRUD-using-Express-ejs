@@ -1,0 +1,295 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+     <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar{
+            background: rgb(29, 33, 39);
+            height: 50px;
+            align-content: center;
+            z-index: 1000;
+        }
+
+        .navbar .nav {
+            list-style: none;
+            margin-left: 20px;
+        }
+
+        .navbar .nav a{
+            color:white;
+            text-decoration: none;
+            margin: 30px;
+            font-family: Papyrus;
+        }
+
+        .navbar .nav a:hover {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+      <div class="logo">
+            <img src="">
+        </div>
+
+        <li class="nav">
+            <a class="index" href="/">Home</a>
+            <a class="about" href="/about">About</a>
+            <a class="contact" href="/contact">Contact</a>
+        </li>
+    </div> 
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  transition: all 0.2s linear;
+}
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+*::selection {
+  background: #2b3dda;
+  color: #fff;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+html::-webkit-scrollbar {
+  width: 0.8rem;
+}
+html::-webkit-scrollbar-track {
+  background: rgb(235, 202, 245);
+}
+html::-webkit-scrollbar-thumb {
+  background: #420177;
+}
+    li a {
+        text-decoration: none;
+        list-style-type: none;
+        color: white;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    :root {
+        --gray-100: #f3f4f6;
+        --gray-800: #ff7b00;
+        --gray-900: none;
+        --emerald-500: yellow;
+        --ff-roboto: 'Roboto', sans-serif;
+    }
+
+    main {
+        width: 100%;
+        overflow-x: hidden;
+        color: var(--gray-900);
+        font-size: 14px;
+        line-height: 1.4;
+        font-weight: 500;
+        font-family: var(--ff-roboto);
+        background-color: var(--gray-100);
+    }
+
+    main {
+        width: 100%;
+        height: 100%;
+    }
+
+    header {
+        width: 100%;
+        padding: 1rem 3rem;
+        background-color: var(--gray-900);
+        display: flex;
+        display: -webkit-flex;
+        -webkit-justify-content: flex-end;
+        justify-content: flex-end;
+        -webkit-align-items: center;
+        align-items: center;
+        position: fixed;
+        z-index: 100;
+    }
+
+    nav {
+        display: flex;
+        gap: 2rem;
+        margin: 0rem 2rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* ion-icon[name='notifications-outline'] {
+        font-size: 1.85rem;
+        color: var(--gray-100);
+    } */
+
+    /* Dropdown css */
+    .dropdown-wrapper {
+        position: relative;
+    }
+
+    .dropdown-toggle {
+        display: none;
+    }
+
+    .dropdown-label {
+        height: 3rem;
+        width: 3rem;
+        display: block;
+        background-color: white;
+        cursor: pointer;
+        /* border-radius: 50%; */
+        background-image: url('image/logo.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 6rem;
+        left: -6rem;
+        padding: 1rem 0rem;
+        color: var(--gray-100);
+        background-color: #09011b;
+        border-radius: 5px;
+    }
+
+    .upper-triangle {
+        position: absolute;
+        right: 30%;
+        top: -0.75rem;
+        width: 0;
+        height: 0;
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-bottom: 12px solid var(--gray-900);
+    }
+
+    .dropdown-menu--display {
+        display: none;
+    }
+
+    .dropdown-toggle:checked+.dropdown-label+.dropdown-menu--display {
+        display: block;
+    }
+
+    .dropdown-list-icon {
+        font-size: 1.25rem;
+    }
+
+    .dropdown-list {
+        list-style-type: none;
+        width: 12rem;
+    }
+
+    .dropdown-list>li {
+        padding: 1.25rem 1rem;
+        display: flex;
+        display: -webkit-flex;
+        -webkit-align-items: center;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        transition: all 100ms ease-in-out;
+    }
+
+    .dropdown-list>li:hover {
+        border-left: 5px solid var(--emerald-500);
+        background-color: var(--gray-800);
+    }
+
+    .dropdown-list>li>span {
+        font-size: 1rem;
+    }
+</style>
+
+<body>
+    <main>
+        <header>
+            <nav>
+                <!-- <ion-icon name="notifications-outline"></ion-icon> -->
+                <div class="dropdown-wrapper">
+                    <!--- Dropdown profile --->
+                    <input type="checkbox" id="dropdown-toggle" class="dropdown-toggle" />
+                    <label for="dropdown-toggle" class="dropdown-label"></label>
+
+                    <!--- Dropdown menu --->
+                    <div class="dropdown-menu dropdown-menu--display">
+                        <div class="upper-triangle"></div>
+                        <ul class="dropdown-list">
+                            <li>
+                                <ion-icon name="person-outline" class="dropdown-list-icon"></ion-icon>
+                                <a href="/"><span>Profile</span></a>
+                            </li>
+                            <li>
+                                <ion-icon name="mail-outline" class="dropdown-list-icon"></ion-icon>
+                                <a href="/about"><span>About</span></a>
+                            </li>
+                            <li>
+                                <ion-icon name="settings-outline" class="dropdown-list-icon"></ion-icon>
+                                <a href="/contact"><span>Contact</span></a>
+                            </li>
+                            <li>
+                                <ion-icon name="help-circle-outline" class="dropdown-list-icon"></ion-icon>
+                                <a href="/feedbackList"><span>Feedback</span></a>
+                            </li>
+                            <li>
+                                <ion-icon name="log-out-outline" class="dropdown-list-icon"></ion-icon>
+                                <span>Logout</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </main>
+
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

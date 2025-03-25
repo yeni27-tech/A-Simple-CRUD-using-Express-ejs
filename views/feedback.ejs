@@ -1,0 +1,17 @@
+
+
+<h1><%= title %></h1>
+
+<% if (msg) { %>
+    <div class="alert"><%= msg %></div>
+<% } %>
+
+<a href="/feedback/add">+ Tambah Feedback</a>
+
+<ul>
+    <% feedbacks.forEach((fb) => { %>
+        <li>
+            <strong><%= fb.nama %>:</strong> <%= fb.pesan %> (<%= fb.email %>)
+        </li>
+    <% }); %>
+</ul>
